@@ -83,23 +83,17 @@
 
 ---
 
-## 🗂 메타데이터 예시 구조
+## 🗂 메타데이터 예시
 
-```json
-[
-  {
-    "table_name": "channel_watch_log",
-    "columns": [
-      { "column_name": "WATCH_DATE", "description": "시청 일자", "data_type": "DATE" },
-      { "column_name": "CHANNEL_ID", "description": "채널 ID", "data_type": "VARCHAR" },
-      { "column_name": "WATCH_CNT", "description": "시청 횟수", "data_type": "INT" }
-    ]
-  }
-]
-```
+|엔티티명|테이블명|속성명|칼럼명|자료형|
+|tv_채널광고노출이력|in_otv_cntpnt_advr_log_hist|기준일자|base_date|string|
+|tv_채널광고노출이력|in_otv_cntpnt_advr_log_hist|광고편성ID|frmtn_id|string|
+|tv_채널광고노출이력|in_otv_cntpnt_advr_log_hist|시작일시|strt_dt|string|
+|tv_채널광고노출이력|in_otv_cntpnt_advr_log_hist|시청비율|plyb_rati|int|
+...
 
-* 엑셀 형태의 정의서(엔티티, 속성)를 기반으로 위와 같이 구조화
-* 이후 FAISS 등 벡터DB에 삽입하여 RAG에서 검색 가능
+* 엑셀 형태의 속성 정의서를 기반으로 사용
+* json 형태로 변환하여 업로드 등 방안 검토 예정
 
 ---
 
