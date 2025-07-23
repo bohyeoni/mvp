@@ -129,4 +129,9 @@
 * 사용자 맞춤형 질의 히스토리 분석
 * 사전 등록된 쿼리 템플릿 추천 기능
 
+---
+
+## 시연
+
+<img src="https://github.com/user-attachments/assets/f8bd8f65-21ae-4de2-9f45-92c729dba252">
 ```
