@@ -85,7 +85,6 @@
 | 문자열 합치기 | `+` 연산                      | `CONCAT()`                   |
 | NULL 필터 | `IS NULL / IS NOT NULL`     | 동일                           |
 
-> LangChain에서는 DB Type에 따라 Prompt Template을 분기 처리함
 
 ---
 
@@ -98,7 +97,7 @@
 [ 프론트엔드 UI ]
    │
    ▼
-[ LangChain Agent ]
+[ AI Service ]
    │
    ├─> RAG Retriever: 메타데이터에서 테이블/컬럼/DB 구조 검색
    │
