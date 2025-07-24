@@ -130,7 +130,7 @@
 
 ---
 
-## 시연
-
+## 결과
+https://ktds301-web-001-f8dha3cbfxgdfbem.canadacentral-01.azurewebsites.net/
 <img src="https://github.com/user-attachments/assets/f8bd8f65-21ae-4de2-9f45-92c729dba252">
 ```
