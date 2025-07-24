@@ -46,16 +46,17 @@
 
 ## 🔧 기술 아키텍처
 
-### 🛠 기술 스택 (예상 안, 변경 가능)
+### 🛠 기술 스택 (2025.07 기준 / 예상 구성)
 
-| 구성 요소 | 기술 |
-|-----------|------|
-| LLM 기반 질의 생성 | Azure OpenAI GPT-4 |
-| 검색 엔진 | RAG (LangChain + FAISS / Chroma) |
-| API 프레임워크 | FastAPI, LangChain Toolkit |
-| 메타데이터 저장 | JSON, PostgreSQL, CosmosDB |
-| 데이터 소스 | MSSQL, NDAP (Hive on Hadoop) |
-| 프론트엔드 | Streamlit
+| 구성 요소 | 기술 / 설명 |
+|-----------|-------------|
+| LLM 기반 질의 생성 | **Azure OpenAI GPT-4o-mini** – 자연어 질문 이해 및 SQL 생성 |
+| 임베딩 모델 (텍스트 벡터화) | **text-embedding-3-small** (Azure) |
+| 검색 엔진 (RAG) | 메타데이터 벡터 검색 기반 RAG 구성 |
+| 메타데이터 소스 | 광고분석시스템 정의서 (엑셀 또는 텍스트 파일에서 추출) |
+| 메타데이터 저장 포맷 | 정제된 text 파일 – 테이블/컬럼명/설명 구조화 |
+| 데이터 소스 | **(향후 연동 예정)** MSSQL, NDAP(Hive) – 실제 광고 분석 데이터 저장소 |
+| 프론트엔드 | **Streamlit** – 사용자의 질문 입력 및 결과 시각화를 위한 경량 UI |
 
 ---
 
@@ -70,7 +71,6 @@
 ...
 
 * 엑셀 형태의 속성 정의서를 기반으로 사용
-* json 형태로 변환하여 업로드 등 방안 검토 예정
 * 각 테이블은 어느 DB에 존재하는지 명시
 * 문법 차이 반영: `LIMIT vs TOP`, `TO_DATE vs CAST`, `JOIN 방식` 등
 
@@ -99,9 +99,7 @@
    ▼
 [ AI Service ]
    │
-   ├─> RAG Retriever: 메타데이터에서 테이블/컬럼/DB 구조 검색
-   │
-   └─> LLM Prompt Template (DB Type 기반 분기)
+   └─> RAG Retriever: 메타데이터에서 테이블/컬럼/DB 구조 검색
          │
          ▼
 [ MSSQL or Hive SQL 생성 ]
@@ -115,7 +113,7 @@
 ## 💡 기대 효과
 
 * SQL 작성이 어려운 사용자도 분석 가능
-* 운영자 업무 부담 감소 (정의서·쿼리 문의 제거)
+* 운영자 업무 부담 감소 (정의서·쿼리 문의 제거, 자료요청 효율화)
 * MSSQL, Hive 양쪽 DB 환경에서의 유연한 분석 지원
 * 테이블 존재 여부 및 문법 차이를 자동 처리
 
